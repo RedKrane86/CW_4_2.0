@@ -10,7 +10,7 @@ genre_ns = Namespace('genres')
 class GenresView(Resource):
     def get(self):
         genres = genre_service.get_all()
-        result = GenreSchema(many=True).dumps(genres)
+        result = GenreSchema(many=True).dump(genres)
         return result, 200
 
 

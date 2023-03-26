@@ -1,4 +1,5 @@
 from flask_restx import Resource, Namespace
+from flask import jsonify
 
 from dao.model.director import DirectorSchema
 from implemented import director_service
@@ -10,7 +11,7 @@ director_ns = Namespace('directors')
 class DirectorsView(Resource):
     def get(self):
         directors = director_service.get_all()
-        result = DirectorSchema(many=True).dumps(directors)
+        result = DirectorSchema(many=True).dump(directors)
         return result, 200
 
 

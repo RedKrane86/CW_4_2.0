@@ -11,7 +11,7 @@ moviw_ns = Namespace('movies')
 class MoviesView(Resource):
     def get(self):
         movies = movie_service.get_all()
-        result = MovieSchema(many=True).dumps(movies)
+        result = MovieSchema(many=True).dump(movies)
         return result, 200
 
 

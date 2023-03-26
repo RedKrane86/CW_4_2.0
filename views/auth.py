@@ -26,8 +26,8 @@ class AuthView(Resource):
 class AuthView(Resource):
     def post(self):
         req_json = request.json
-        email = req_json('email')
-        password = req_json('password')
+        email = req_json['email']
+        password = req_json['password']
 
         if not all([email, password]):
             return '', 400
